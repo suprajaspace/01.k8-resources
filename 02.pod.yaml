@@ -1,0 +1,21 @@
+# apiVersion: v1
+# kind: Pod
+# metadata:
+#   name: nginx
+# spec:
+#   containers:
+#   - name: nginx
+#     image: nginx
+  
+  #docker run -d --name nginx nginx
+
+apiVersion: v1 
+kind: Pod
+metadata:
+  name: nginx
+spec:
+  containers:
+  - name: nginx
+    image: nginx
+
+    
