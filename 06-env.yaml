@@ -1,0 +1,16 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  name: environment
+spec:
+  containers:
+  - name: nginx
+    image: nginx
+    env:
+      - name: job
+        value: devops engineer
+      - name: company
+        value: "dbs"
+      - name: location
+        value: "changi"  
+

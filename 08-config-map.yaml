@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: nginx-config
+data:
+  company: dbs
+  location: "changi"
+
+# https://kubernetes.io/docs/concepts/configuration/configmap/
+
+# apiVersion: v1
+# kind: ConfigMap
+# metadata:
+#   name: nginx-config
+# data:
+#   course: devops
+#   duration: "120hrs"
