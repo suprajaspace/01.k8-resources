@@ -6,3 +6,16 @@ metadata:
     project: expense
     environemnt: dev
 
+# [ ec2-user@ip-172-31-88-42 ~/01.k8-resources ]$ kubectl apply -f 01-namespace.yaml
+# namespace/expense created
+
+
+
+# 54.152.103.126 | 172.31.88.42 | t3.micro | https://github.com/suprajaspace/01.k8-resources.git
+# [ ec2-user@ip-172-31-88-42 ~/01.k8-resources ]$ kubectl get namespaces
+# NAME              STATUS   AGE
+# default           Active   13m
+# expense           Active   27s
+# kube-node-lease   Active   13m
+# kube-public       Active   13m
+# kube-system       Active   13m
