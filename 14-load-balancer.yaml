@@ -15,6 +15,8 @@ spec:
     targetPort: 80 # container port
 
 
+
+
 #     54.152.103.126 | 172.31.88.42 | t3.micro | https://github.com/suprajaspace/01.k8-resources.git
 # [ ec2-user@ip-172-31-88-42 ~/01.k8-resources ]$ kubectl apply -f 14-load-balancer.yaml
 # service/nginx-lb created
