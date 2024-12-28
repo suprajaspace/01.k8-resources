@@ -66,3 +66,82 @@ spec:
 # NJS_RELEASE=1~bookworm
 # _=/usr/bin/env
 # root@pod-config:/#
+
+
+# 54.152.103.126 | 172.31.88.42 | t3.micro | https://github.com/suprajaspace/01.k8-resources.git
+# [ ec2-user@ip-172-31-88-42 ~/01.k8-resources ]$ kubectl get configmap
+# NAME               DATA   AGE
+# kube-root-ca.crt   1      75m
+# nginx-config       2      28m
+
+# 54.152.103.126 | 172.31.88.42 | t3.micro | https://github.com/suprajaspace/01.k8-resources.git
+# [ ec2-user@ip-172-31-88-42 ~/01.k8-resources ]$ kubectl edit configmap
+# configmap/kube-root-ca.crt skipped
+# configmap/nginx-config edited
+
+# 54.152.103.126 | 172.31.88.42 | t3.micro | https://github.com/suprajaspace/01.k8-resources.git
+# [ ec2-user@ip-172-31-88-42 ~/01.k8-resources ]$ kubectl edit configmap nginx-config
+# Edit cancelled, no changes made.
+
+# 54.152.103.126 | 172.31.88.42 | t3.micro | https://github.com/suprajaspace/01.k8-resources.git
+# [ ec2-user@ip-172-31-88-42 ~/01.k8-resources ]$ kubectl edit configmap nginx-config
+# configmap/nginx-config edited
+
+# 54.152.103.126 | 172.31.88.42 | t3.micro | https://github.com/suprajaspace/01.k8-resources.git
+# [ ec2-user@ip-172-31-88-42 ~/01.k8-resources ]$ kubectl get pods
+# NAME              READY   STATUS    RESTARTS      AGE
+# annotations       1/1     Running   0             42m
+# environment       1/1     Running   0             39m
+# labels            1/1     Running   0             45m
+# limits            1/1     Running   0             36m
+# multi-container   2/2     Running   3 (58s ago)   51m
+# nginx             1/1     Running   0             63m
+# pod-config        1/1     Running   0             28m
+
+# 54.152.103.126 | 172.31.88.42 | t3.micro | https://github.com/suprajaspace/01.k8-resources.git
+# [ ec2-user@ip-172-31-88-42 ~/01.k8-resources ]$ kubectl delete  pod pod-config
+# pod "pod-config" deleted
+
+
+# 54.152.103.126 | 172.31.88.42 | t3.micro | https://github.com/suprajaspace/01.k8-resources.git
+# [ ec2-user@ip-172-31-88-42 ~/01.k8-resources ]$ kubectl apply -f 09-pod-config.yaml
+# pod/pod-config created
+
+# 54.152.103.126 | 172.31.88.42 | t3.micro | https://github.com/suprajaspace/01.k8-resources.git
+# [ ec2-user@ip-172-31-88-42 ~/01.k8-resources ]$ kubectl get pods
+# NAME              READY   STATUS    RESTARTS        AGE
+# annotations       1/1     Running   0               43m
+# environment       1/1     Running   0               40m
+# labels            1/1     Running   0               46m
+# limits            1/1     Running   0               38m
+# multi-container   2/2     Running   3 (2m40s ago)   52m
+# nginx             1/1     Running   0               65m
+# pod-config        1/1     Running   0               13s
+
+# 54.152.103.126 | 172.31.88.42 | t3.micro | https://github.com/suprajaspace/01.k8-resources.git
+# [ ec2-user@ip-172-31-88-42 ~/01.k8-resources ]$ kubectl exec -it pod-config -- bash
+# root@pod-config:/# env
+# KUBERNETES_SERVICE_PORT_HTTPS=443
+# KUBERNETES_SERVICE_PORT=443
+# HOSTNAME=pod-config
+# PWD=/
+# PKG_RELEASE=1~bookworm
+# HOME=/root
+# KUBERNETES_PORT_443_TCP=tcp://10.100.0.1:443
+# DYNPKG_RELEASE=1~bookworm
+# NJS_VERSION=0.8.7
+# TERM=xterm
+# company=DBS
+# SHLVL=1
+# location=changi, Singapore
+# KUBERNETES_PORT_443_TCP_PROTO=tcp
+# KUBERNETES_PORT_443_TCP_ADDR=10.100.0.1
+# KUBERNETES_SERVICE_HOST=10.100.0.1
+# KUBERNETES_PORT=tcp://10.100.0.1:443
+# KUBERNETES_PORT_443_TCP_PORT=443
+# PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+# NGINX_VERSION=1.27.3
+# NJS_RELEASE=1~bookworm
+# _=/usr/bin/env
+# root@pod-config:/#
+
