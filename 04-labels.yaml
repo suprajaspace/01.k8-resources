@@ -10,3 +10,73 @@ spec:
   containers:
   - name: nginx
     image: nginx
+
+
+
+# 54.152.103.126 | 172.31.88.42 | t3.micro | https://github.com/suprajaspace/01.k8-resources.git
+# [ ec2-user@ip-172-31-88-42 ~/01.k8-resources ]$ kubectl apply -f 04-labels.yaml
+# pod/labels created
+
+# 54.152.103.126 | 172.31.88.42 | t3.micro | https://github.com/suprajaspace/01.k8-resources.git
+# [ ec2-user@ip-172-31-88-42 ~/01.k8-resources ]$ kubectl get pods
+# NAME              READY   STATUS    RESTARTS   AGE
+# labels            1/1     Running   0          6s
+# multi-container   2/2     Running   0          5m58s
+# nginx             1/1     Running   0          18m
+
+# 54.152.103.126 | 172.31.88.42 | t3.micro | https://github.com/suprajaspace/01.k8-resources.git
+# [ ec2-user@ip-172-31-88-42 ~/01.k8-resources ]$ kubectl describe pod labels
+# Name:             labels
+# Namespace:        default
+# Priority:         0
+# Service Account:  default
+# Node:             ip-192-168-28-237.ec2.internal/192.168.28.237
+# Start Time:       Sat, 28 Dec 2024 04:07:37 +0000
+# Labels:           environment=dev
+#                   module=backend
+#                   project=target
+# Annotations:      <none>
+# Status:           Running
+# IP:               192.168.16.225
+# IPs:
+#   IP:  192.168.16.225
+# Containers:
+#   nginx:
+#     Container ID:   containerd://1b43263eca1956ec2b3030262bb4119c04174474ba4eb7c8efd6e4fd894aed71
+#     Image:          nginx
+#     Image ID:       docker.io/library/nginx@sha256:42e917aaa1b5bb40dd0f6f7f4f857490ac7747d7ef73b391c774a41a8b994f15
+#     Port:           <none>
+#     Host Port:      <none>
+#     State:          Running
+#       Started:      Sat, 28 Dec 2024 04:07:38 +0000
+#     Ready:          True
+#     Restart Count:  0
+#     Environment:    <none>
+#     Mounts:
+#       /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-p9f6x (ro)
+# Conditions:
+#   Type                        Status
+#   PodReadyToStartContainers   True
+#   Initialized                 True
+#   Ready                       True
+#   ContainersReady             True
+#   PodScheduled                True
+# Volumes:
+#   kube-api-access-p9f6x:
+#     Type:                    Projected (a volume that contains injected data from multiple sources)
+#     TokenExpirationSeconds:  3607
+#     ConfigMapName:           kube-root-ca.crt
+#     ConfigMapOptional:       <nil>
+#     DownwardAPI:             true
+# QoS Class:                   BestEffort
+# Node-Selectors:              <none>
+# Tolerations:                 node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+#                              node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+# Events:
+#   Type    Reason     Age   From               Message
+#   ----    ------     ----  ----               -------
+#   Normal  Scheduled  44s   default-scheduler  Successfully assigned default/labels to ip-192-168-28-237.ec2.internal
+#   Normal  Pulling    44s   kubelet            Pulling image "nginx"
+#   Normal  Pulled     44s   kubelet            Successfully pulled image "nginx" in 145ms (145ms including waiting). Image size: 72099410 bytes.
+#   Normal  Created    43s   kubelet            Created container nginx
+#   Normal  Started    43s   kubelet            Started container nginx
