@@ -7,7 +7,7 @@ metadata:
     tier: frontend
 spec:
   # modify replicas according to your case
-  replicas: 3  #30
+  replicas: 30 #30
   selector:
     # these are used to select the pod to create replicas
     matchLabels:
@@ -39,3 +39,66 @@ spec:
     protocol: TCP
     port: 80 # service port
     targetPort: 80 # container port
+
+
+    
+# 34.239.121.164 | 172.31.85.45 | t3.micro | https://github.com/suprajaspace/01.k8-resources.git
+# [ ec2-user@ip-172-31-85-45 ~/01.k8-resources ]$ kubectl apply -f 16-deployment.yaml
+# deployment.apps/nginx created
+# service/nginx unchanged
+
+# 34.239.121.164 | 172.31.85.45 | t3.micro | https://github.com/suprajaspace/01.k8-resources.git
+# [ ec2-user@ip-172-31-85-45 ~/01.k8-resources ]$ kubectl get pods
+# NAME                    READY   STATUS    RESTARTS   AGE
+# nginx-c8bb98ddc-58g6l   1/1     Running   0          45s
+# nginx-c8bb98ddc-dx5tf   1/1     Running   0          40s
+# nginx-c8bb98ddc-x8g2b   1/1     Running   0          38s
+
+# 34.239.121.164 | 172.31.85.45 | t3.micro | https://github.com/suprajaspace/01.k8-resources.git
+# [ ec2-user@ip-172-31-85-45 ~/01.k8-resources ]$ kubectl get replicaset
+# NAME              DESIRED   CURRENT   READY   AGE
+# nginx             0         0         0       24m
+# nginx-c8bb98ddc   3         3         3       96s
+
+# 34.239.121.164 | 172.31.85.45 | t3.micro | https://github.com/suprajaspace/01.k8-resources.git
+# [ ec2-user@ip-172-31-85-45 ~/01.k8-resources ]$ git pull
+# remote: Enumerating objects: 5, done.
+# remote: Counting objects: 100% (5/5), done.
+# remote: Compressing objects: 100% (1/1), done.
+# remote: Total 3 (delta 2), reused 3 (delta 2), pack-reused 0 (from 0)
+# Unpacking objects: 100% (3/3), 290 bytes | 290.00 KiB/s, done.
+# From https://github.com/suprajaspace/01.k8-resources
+#    8e837a0..58af396  main       -> origin/main
+# Updating 8e837a0..58af396
+# Fast-forward
+#  16-deployment.yaml | 3 ++-
+#  1 file changed, 2 insertions(+), 1 deletion(-)
+
+
+
+# 34.239.121.164 | 172.31.85.45 | t3.micro | https://github.com/suprajaspace/01.k8-resources.git
+# [ ec2-user@ip-172-31-85-45 ~/01.k8-resources ]$ kubectl apply -f 16-deployment.yaml
+# deployment.apps/nginx configured
+# service/nginx unchanged
+
+# 34.239.121.164 | 172.31.85.45 | t3.micro | https://github.com/suprajaspace/01.k8-resources.git
+# [ ec2-user@ip-172-31-85-45 ~/01.k8-resources ]$ kubectl get pods
+# NAME                    READY   STATUS              RESTARTS   AGE
+# nginx-c8bb98ddc-58g6l   0/1     Terminating         0          5m17s
+# nginx-c8bb98ddc-x8g2b   1/1     Running             0          5m10s
+# nginx-cbhbp             0/1     ContainerCreating   0          1s
+# nginx-sl9xd             1/1     Running             0          2s
+# nginx-vk75w             1/1     Running             0          5s
+
+# 34.239.121.164 | 172.31.85.45 | t3.micro | https://github.com/suprajaspace/01.k8-resources.git
+# [ ec2-user@ip-172-31-85-45 ~/01.k8-resources ]$ kubectl get pods
+# NAME          READY   STATUS    RESTARTS   AGE
+# nginx-cbhbp   1/1     Running   0          13s
+# nginx-sl9xd   1/1     Running   0          14s
+# nginx-vk75w   1/1     Running   0          17s
+
+# 34.239.121.164 | 172.31.85.45 | t3.micro | https://github.com/suprajaspace/01.k8-resources.git
+# [ ec2-user@ip-172-31-85-45 ~/01.k8-resources ]$ kubectl get replicaset
+# NAME              DESIRED   CURRENT   READY   AGE
+# nginx             3         3         3       28m
+# nginx-c8bb98ddc   0         0         0       5m58s
