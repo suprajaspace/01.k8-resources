@@ -102,3 +102,85 @@ spec:
 # NAME              DESIRED   CURRENT   READY   AGE
 # nginx             3         3         3       28m
 # nginx-c8bb98ddc   0         0         0       5m58s
+
+
+
+# for 30 replicas 
+
+# 34.239.121.164 | 172.31.85.45 | t3.micro | https://github.com/suprajaspace/01.k8-resources.git
+# [ ec2-user@ip-172-31-85-45 ~/01.k8-resources ]$ git pull
+# remote: Enumerating objects: 5, done.
+# remote: Counting objects: 100% (5/5), done.
+# remote: Compressing objects: 100% (2/2), done.
+# remote: Total 3 (delta 1), reused 3 (delta 1), pack-reused 0 (from 0)
+# Unpacking objects: 100% (3/3), 1.21 KiB | 206.00 KiB/s, done.
+# From https://github.com/suprajaspace/01.k8-resources
+#    58af396..e6440f5  main       -> origin/main
+# Updating 58af396..e6440f5
+# Fast-forward
+#  16-deployment.yaml | 67 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++--
+#  1 file changed, 65 insertions(+), 2 deletions(-)
+
+# 34.239.121.164 | 172.31.85.45 | t3.micro | https://github.com/suprajaspace/01.k8-resources.git
+# [ ec2-user@ip-172-31-85-45 ~/01.k8-resources ]$ kubectl apply -f 16-deployment.yaml
+# deployment.apps/nginx configured
+# service/nginx unchanged
+
+# 34.239.121.164 | 172.31.85.45 | t3.micro | https://github.com/suprajaspace/01.k8-resources.git
+# [ ec2-user@ip-172-31-85-45 ~/01.k8-resources ]$ kubectl get pods
+# NAME          READY   STATUS    RESTARTS   AGE
+# nginx-25cjp   1/1     Running   0          5s
+# nginx-4pvrl   1/1     Running   0          5s
+# nginx-8gjt8   1/1     Running   0          5s
+# nginx-9gckv   1/1     Running   0          5s
+# nginx-cbhbp   1/1     Running   0          11m
+# nginx-clvj7   1/1     Running   0          5s
+# nginx-d492b   1/1     Running   0          5s
+# nginx-gv88x   1/1     Running   0          5s
+# nginx-hd6hp   1/1     Running   0          5s
+# nginx-hshm4   1/1     Running   0          5s
+# nginx-j2gnx   1/1     Running   0          5s
+# nginx-lsvtz   1/1     Running   0          5s
+# nginx-ndtpk   1/1     Running   0          5s
+# nginx-nhscb   1/1     Running   0          5s
+# nginx-pcztw   1/1     Running   0          5s
+# nginx-pz9sg   1/1     Running   0          5s
+# nginx-qtq44   1/1     Running   0          5s
+# nginx-rkrgp   1/1     Running   0          5s
+# nginx-rsrj7   1/1     Running   0          5s
+# nginx-s64tc   1/1     Running   0          5s
+# nginx-sfqh9   1/1     Running   0          5s
+# nginx-sl9xd   1/1     Running   0          11m
+# nginx-v74th   1/1     Running   0          5s
+# nginx-vf4qt   1/1     Running   0          5s
+# nginx-vk75w   1/1     Running   0          11m
+# nginx-w7mgs   1/1     Running   0          5s
+# nginx-wg2rz   1/1     Running   0          5s
+# nginx-wkmrt   1/1     Running   0          5s
+# nginx-xsx48   1/1     Running   0          5s
+# nginx-zml28   1/1     Running   0          5s
+
+# 34.239.121.164 | 172.31.85.45 | t3.micro | https://github.com/suprajaspace/01.k8-resources.git
+# [ ec2-user@ip-172-31-85-45 ~/01.k8-resources ]$ git pull
+# remote: Enumerating objects: 5, done.
+# remote: Counting objects: 100% (5/5), done.
+# remote: Compressing objects: 100% (1/1), done.
+# remote: Total 3 (delta 2), reused 3 (delta 2), pack-reused 0 (from 0)
+# Unpacking objects: 100% (3/3), 275 bytes | 68.00 KiB/s, done.
+# From https://github.com/suprajaspace/01.k8-resources
+#    e6440f5..5ea6749  main       -> origin/main
+# Updating e6440f5..5ea6749
+# Fast-forward
+#  16-deployment.yaml | 4 ++--
+#  1 file changed, 2 insertions(+), 2 deletions(-)
+
+# 34.239.121.164 | 172.31.85.45 | t3.micro | https://github.com/suprajaspace/01.k8-resources.git
+# [ ec2-user@ip-172-31-85-45 ~/01.k8-resources ]$ kubectl apply -f 16-deployment.yaml
+# deployment.apps/nginx configured
+# service/nginx unchanged
+
+
+
+# 34.239.121.164 | 172.31.85.45 | t3.micro | null
+# [ ec2-user@ip-172-31-85-45 ~ ]$ watch kubectl get pods
+
