@@ -23,8 +23,9 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: nginx:stable-perl
-        # image: nginx
+        #image: nginx:stable-perl
+        
+        image: nginx
 
 ---
 kind: Service
@@ -40,3 +41,26 @@ spec:
     protocol: TCP
     port: 80 # service port
     targetPort: 80 # container port
+
+# 34.239.121.164 | 172.31.85.45 | t3.micro | https://github.com/suprajaspace/01.k8-resources.git
+# [ ec2-user@ip-172-31-85-45 ~/01.k8-resources ]$ kubectl apply -f 15-replicaset.yaml
+# replicaset.apps/nginx created
+# service/nginx created
+
+# 34.239.121.164 | 172.31.85.45 | t3.micro | https://github.com/suprajaspace/01.k8-resources.git
+# [ ec2-user@ip-172-31-85-45 ~/01.k8-resources ]$ kubectl describe service nginx
+# Name:              nginx
+# Namespace:         default
+# Labels:            <none>
+# Annotations:       <none>
+# Selector:          app=nginx,tier=frontend
+# Type:              ClusterIP
+# IP Family Policy:  SingleStack
+# IP Families:       IPv4
+# IP:                10.100.164.236
+# IPs:               10.100.164.236
+# Port:              nginx-svc-port  80/TCP
+# TargetPort:        80/TCP
+# Endpoints:         192.168.54.62:80,192.168.56.103:80,192.168.61.112:80
+# Session Affinity:  None
+# Events:            <none>
