@@ -5,7 +5,7 @@ metadata:
   labels:
     project: expense
     environemnt: dev
-
+---
 kind: Pod
 metadata:
   name: nginx
@@ -13,8 +13,7 @@ spec:
   containers:
   - name: nginx
     image: nginx
-
-kind: Pod
+---
 metadata:
   name: multi-container
 spec:
@@ -23,5 +22,131 @@ spec:
     image: nginx
   - name: almalinux
     image: almalinux:9
-    command: ["sleep","1000"]  
+    command: ["sleep","100"]  
+---
+metadata:
+  name: labels
+  labels:
+    project: target
+    module: backend
+    environment: dev
+spec: 
+  containers:
+  - name: nginx
+    image: nginx
+---
+metadata:
+  name: annotations
+  annotations:
+    imageregistry: "https://hub.docker.com/"
+    buildURL: "https://jenkins.devops.com/target/backend/build/67"
+spec:
+  containers:
+  - name: nginx
+    image: nginx
+
+---
+metadata:
+  name: environment
+spec:
+  containers:
+  - name: nginx
+    image: nginx
+    env:
+      - name: job
+        value: devops engineer
+      - name: company
+        value: "dbs"
+      - name: location
+        value: "changi"  
+
+---
+metadata:
+  name: limits
+spec:
+  containers:
+  - name: nginx
+    image: nginx
+    resources:
+      requests:
+        cpu: 100m
+        memory: 68Mi
+      limits:
+        cpu: 120m
+        memory: 100Mi
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: nginx-config
+data:
+  company: dbs
+  location: "changi"
+
+---
+
+
+
+
+
+
+
+
+
+
+
+---
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: expense
+  labels:
+    project: expense
+    environemnt: dev
+  annotations:
+    imageregistry: "https://hub.docker.com/"
+    buildURL: "https://jenkins.devops.com/target/backend/build/67"
+spec:
+  containers:
+  - name: nginx
+    image: nginx 
+    env:
+      - name: job
+        value: devops engineer
+      - name: company
+        value: "dbs"
+      - name: location
+        value: "changi" 
+    resources:
+      requests:
+        cpu: 100m
+        memory: 68Mi
+      limits:
+        cpu: 120m
+        memory: 100Mi
+    
+
+---
+
+kind: ConfigMap
+metadata:
+  name: nginx-config
+data:
+  company: dbs
+  location: "changi"
+---
+kind: Pod
+apiVersion: v1
+metadata:
+  name: pod-config
+spec:
+  containers:
+  - name: nginx
+    image: nginx
+    envFrom:
+    - configMapRef:
+        name: nginx-config
+
+---
 
